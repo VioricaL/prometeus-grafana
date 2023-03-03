@@ -27,11 +27,6 @@ First of all we will create a Kubernetes namespace for all our monitoring compon
 
 kubectl create namespace monitoring
 
-This diagram illustrates the architecture of Prometheus and Grafana and its ecosystem components:
-
-
-
-
 
 
 # Usage 
@@ -61,7 +56,6 @@ It is used by many organizations to monitor their Kubernetes workloads. With the
 | [Grafana documentation](https://grafana.com/docs/grafana/latest/) | resource |
 | [How to Setup Nginx Ingress Controller On Kubernetes – Detailed Guide](https://devopscube.com/setup-ingress-kubernetes-nginx-controller/) | resource |
 
-##  Dashboards Prometheus and Grafana looks like:
 
 
 
