@@ -50,7 +50,7 @@ It is used by many organizations to monitor their Kubernetes workloads. With the
 |------|------|
 | [Install Prometheus Operator with Grafana Cloud for Kubernetes](https://grafana.com/docs/grafana-cloud/kubernetes-monitoring/other-methods/prometheus/prometheus_operator/) | resource |
 | [Kubernetes cluster monitoring (via Prometheus)](https://grafana.com/grafana/dashboards/315-kubernetes-cluster-monitoring-via-prometheus/) | resource |
-| [Elasticsearch data source |  Grafana documentation](https://grafana.com/docs/grafana/latest/datasources/elasticsearch/) | resource |
+| [Elasticsearch data source Grafana documentation](https://grafana.com/docs/grafana/latest/datasources/elasticsearch/) | resource |
 | [How to Setup Prometheus Monitoring On Kubernetes Cluster](https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/) | resource |
 | [How To Setup Grafana On Kubernetes](https://devopscube.com/setup-grafana-kubernetes/) | resource |
 | [Grafana documentation](https://grafana.com/docs/grafana/latest/) | resource |
