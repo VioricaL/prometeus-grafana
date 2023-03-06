@@ -1,5 +1,7 @@
 # Prometheus
-Prometheus is a free software application used for event monitoring and alerting. It records real-time metrics in a time series database built using a HTTP pull model, with flexible queries and real-time alerting. Prometheus can collect metrics about your application and infrastructure. Metrics are small concise descriptions of an event: date, time, and a descriptive value. While prometheus does store or ‘log’ metrics, metrics should not be confused with logs, which can include reams of data. Rather than gathering a great deal of data about one thing, Prometheus uses the approach of gathering a little bit of data about many things to help you understand the state and trajectory of your system. It has become very popular in the industry because it has many powerful features for monitoring metrics and providing alerts that can, with orchestration systems (e.g. Kubernetes), automate responses to changing conditions.
+Prometheus is an open-source monitoring and alerting system that was originally developed by SoundCloud. It is designed to collect metrics from various sources, store them, and provide a query language to retrieve and analyze them. Prometheus is known for its scalability, flexibility, and robustness, making it a popular choice for monitoring large, distributed systems.![image](https://user-images.githubusercontent.com/119547037/223005995-6ceccceb-5f71-40d2-8213-f4bab8c600de.png)
+
+
 
 
 # How Prometheus works
@@ -16,6 +18,22 @@ A Kubernetes cluster should be available where we can set up. Prometheus and Gra
 First of all we will create a Kubernetes namespace for all our monitoring components. The name for our namespace will be "monitoring". If you don’t create a dedicated namespace, all the Prometheus kubernetes deployment objects get deployed on the default namespace. We will use the following command to create a new namespace named monitoring:
 
 kubectl create namespace monitoring
+Step 1: Create a file named clusterRole.yaml
+Step 2: Create the role using the following command.
+kubectl create -f clusterRole.yaml
+Step 1: Create a file called config-map.yaml
+Step 2: Execute the following command to create the config map in Kubernetes.
+kubectl create -f config-map.yaml
+Step 1: Create a file named prometheus-deployment.yaml
+kubectl create -f prometheus-deployment.yaml
+Connecting To Prometheus Dashboard
+kubectl get pods --namespace=monitoring
+kubectl port-forward your_prometheus_pod_name 8080:9090 -n monitoring
+
+
+
+
+
 
 
 
