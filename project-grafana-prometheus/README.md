@@ -1,8 +1,5 @@
 # Prometheus
-Prometheus is an open-source monitoring and alerting system that was originally developed by SoundCloud. It is designed to collect metrics from various sources, store them, and provide a query language to retrieve and analyze them. Prometheus is known for its scalability, flexibility, and robustness, making it a popular choice for monitoring large, distributed systems.![image](https://user-images.githubusercontent.com/119547037/223005995-6ceccceb-5f71-40d2-8213-f4bab8c600de.png)
-
-
-
+Prometheus is an open-source monitoring and alerting system that was originally developed by SoundCloud. It is designed to collect metrics from various sources, store them, and provide a query language to retrieve and analyze them. Prometheus is known for its scalability, flexibility, and robustness, making it a popular choice for monitoring large, distributed systems.
 
 # How Prometheus works
 Prometheus gets metric from an exposed HTTP endpoint. A number of client libraries are available to provide this application integration when building software. With an available endpoint, Prometheus can scrape numerical data and store it as a time series in a local time series database. It can also integrate with remote storage options.
@@ -16,25 +13,20 @@ A Kubernetes cluster should be available where we can set up. Prometheus and Gra
 
 # Create a Namespace & ClusterRole
 First of all we will create a Kubernetes namespace for all our monitoring components. The name for our namespace will be "monitoring". If you don’t create a dedicated namespace, all the Prometheus kubernetes deployment objects get deployed on the default namespace. We will use the following command to create a new namespace named monitoring:
-
+# Follow steps to set up Prometheus
 kubectl create namespace monitoring
-Step 1: Create a file named clusterRole.yaml
+Step 1: Create a file named clusterRole.yaml inside should be ClusterRole & ClusterRoleBinding.
 Step 2: Create the role using the following command.
 kubectl create -f clusterRole.yaml
-Step 1: Create a file called config-map.yaml
-Step 2: Execute the following command to create the config map in Kubernetes.
+Step 3: Create a file called config-map.yaml
+Step 4: Execute the following command to create the config map in Kubernetes.
 kubectl create -f config-map.yaml
-Step 1: Create a file named prometheus-deployment.yaml
+Step 5: Create a file named prometheus-deployment.yaml
 kubectl create -f prometheus-deployment.yaml
-Connecting To Prometheus Dashboard
+Step 6:Connecting To Prometheus Dashboard
 kubectl get pods --namespace=monitoring
 kubectl port-forward your_prometheus_pod_name 8080:9090 -n monitoring
-
-
-
-
-
-
+Step 7: Now, if you access http://localhost:8080 on your browser, you will get the Prometheus home page.
 
 
 # Usage 
@@ -43,9 +35,28 @@ Without Helm for Kubernetes, we rely on Kubernetes YAML files to configure Kuber
 ##  Installing Grafana
 Grafana is an open-source observability platform for visualizing metrics, logs, and traces collected from your applications. It’s a cloud-native solution for quickly assembling data dashboards that let you inspect and analyze your stack.
 
-First of all in order to connect to our GRafana Dashboard we need to expose our Grafana using Ingress. If you have an existing ingress controller setup, you can create an ingress object to route the Grafana DNS to the Prometheus backend service.
+First of all in order to connect to our Grafana Dashboard we need to expose our Grafana using Ingress. If you have an existing ingress controller setup, you can create an ingress object to route the Grafana DNS to the Prometheus backend service.
 
 Also, you can add SSL for Grafana in the ingress layer.
+
+# Follow steps to set up Grafana
+Step 1: Create a file named grafana-datasource-config.yaml
+Step 2: Create the configmap using the following command.
+kubectl create -f grafana-datasource-config.yaml
+Step 3: Create a file named deployment.yaml
+Note: This Grafana deployment does not use a persistent volume. If you restart the pod all changes will be gone. Use a persistent volume if you are deploying Grafana for your project requirements. It will persist all the configs and data that Grafana uses.
+Step 4: Create the deployment
+kubectl create -f deployment.yaml
+Step 5: Create a service file named service.yaml
+
+
+
+
+
+
+
+
+
 
 ## Conclusion
 Grafana is a very powerful tool when it comes to Kubernetes monitoring dashboards.
