@@ -1,16 +1,6 @@
 # Prometheus
 Prometheus is a free software application used for event monitoring and alerting. It records real-time metrics in a time series database built using a HTTP pull model, with flexible queries and real-time alerting. Prometheus can collect metrics about your application and infrastructure. Metrics are small concise descriptions of an event: date, time, and a descriptive value. While prometheus does store or ‘log’ metrics, metrics should not be confused with logs, which can include reams of data. Rather than gathering a great deal of data about one thing, Prometheus uses the approach of gathering a little bit of data about many things to help you understand the state and trajectory of your system. It has become very popular in the industry because it has many powerful features for monitoring metrics and providing alerts that can, with orchestration systems (e.g. Kubernetes), automate responses to changing conditions.
 
-# Prometheus Architecture
-The Prometheus is a multi-component system. While the following integrate into a Prometheus deployment, there is flexibility in which of these pieces are actually implemented.
-
-Prometheus server (scrapes and stores metrics as time series data)
-Client libraries for instrumenting application code
-Push gateway (supports metrics collection from short-lived jobs)
-Special-purpose exporters (Supports tools like HAProxy, StatsD, Graphite, etc.)
-Alertmanager ( sends alerts based on triggers)
-Additional support tools.
-Prometheus can scrape metrics from jobs directly or, for short-lived jobs by using a push gateway when the job exits. The scraped samples are stored locally and rules are applied to the data to aggregate and generate new time series from existing data or generate alerts based on user-defined triggers. While Prometheus comes with a functional Web dashboard or other API consumers can be used to visualize the collected data, with Grafana being the de facto default.
 
 # How Prometheus works
 Prometheus gets metric from an exposed HTTP endpoint. A number of client libraries are available to provide this application integration when building software. With an available endpoint, Prometheus can scrape numerical data and store it as a time series in a local time series database. It can also integrate with remote storage options.
